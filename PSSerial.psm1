@@ -2,14 +2,14 @@ $directorySeparator = [System.IO.Path]::DirectorySeparatorChar
 
 # Public Dir
 $publicFunctionsPath = `
-    $PSScriptRoot + $directorySeparator + 'Public' + $directorySeparator
+    $PSScriptRoot + $directorySeparator + 'Public'
 
 # Private Dir
 $privateFunctionsPath = `
-    $PSScriptRoot + $directorySeparator + 'Private' + $directorySeparator
+    $PSScriptRoot + $directorySeparator + 'Private'
 
 # Classes Dir
-$classesPath =  $PSScriptRoot + $directorySeparator + 'Classes' + $directorySeparator + 'ps1'
+$classesPath =  $PSScriptRoot + $directorySeparator + 'Classes'
 
 # Source files
 $publicFunctions = Get-ChildItem -Path $publicFunctionsPath | `
