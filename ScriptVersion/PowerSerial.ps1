@@ -60,11 +60,9 @@ function Start-SerialSession {
                     $cmd = $true
                 } elseif ($inputHelpers.Keys.Contains($key.Key)) {
                     $msg = $inputHelpers[$key.Key]
-                    Invoke-Command -ScriptBlock $ControlHandler `
-                        -ArgumentList $msg
+                    $port.Write($msg)
                 } else {
-                    Invoke-Command -ScriptBlock $ControlHandler `
-                        -ArgumentList $key.KeyChar
+                    $port.Write($key.KeyChar)
                 }
             }
         }
