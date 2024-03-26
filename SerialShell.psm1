@@ -96,9 +96,9 @@ function New-SerialSession {
             [System.Environment]::CurrentDirectory = $PWD
         }
         try {
-            $global:log = [System.IO.File]::Open("Create", "Write")
+            $global:log = [System.IO.File]::Open($LogFile, "Create", "Write")
         } catch {
-            "Could not open the specified file or file already exists"
+            throw "Could not open the specified file or file already exists"
         }
     } else {
         $global:log = $null
