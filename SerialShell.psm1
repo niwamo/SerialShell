@@ -1,6 +1,7 @@
 function Start-SerialSession {
     param(
-        [System.IO.Ports.SerialPort]$Port
+        [System.IO.Ports.SerialPort]$Port,
+        [System.IO.FileStream]$Log
     )
     [Console]::TreatControlCAsInput = $true
     $cmd = $false
@@ -39,6 +40,9 @@ function Start-SerialSession {
         -Action {
             $data = $port.ReadExisting()
             Write-Host $data -NoNewline
+            if ($Log) {
+                $Log.Write([char[]]$data, 0, $data.Length)
+            }
         } 
     Write-Host "Starting Session. CTRL+A -> Z to exit"
     # output blank line as a way of requesting a prompt from remote system
@@ -58,11 +62,16 @@ function Start-SerialSession {
             } else {
                 if ([byte]$key.KeyChar -eq 1) {
                     $cmd = $true
-                } elseif ($inputHelpers.Keys.Contains($key.Key)) {
-                    $msg = $inputHelpers[$key.Key]
-                    $port.Write($msg)
                 } else {
-                    $port.Write($key.KeyChar)
+                    if ($inputHelpers.Keys.Contains($key.Key)) {
+                        $msg = $inputHelpers[$key.Key]
+                    } else {
+                        $msg = $key.KeyChar
+                    }
+                    $port.Write($msg)
+                    if ($Log) {
+                        $Log.Write($msg, 0, $msg.Length)
+                    }
                 }
             }
         }
@@ -77,10 +86,23 @@ function New-SerialSession {
     param(
         [int]$COMPort,
         [int]$BaudRate,
+        [string]$LogFile = $null,
         [System.IO.Ports.Parity]$Parity = "None",
         [int]$DataBits = 8,
         [System.IO.Ports.StopBits]$StopBits = "one"
     )
+    if ($LogFile) {
+        if($PWD.Provider.Name -eq 'Filesystem'){
+            [System.Environment]::CurrentDirectory = $PWD
+        }
+        try {
+            $global:log = [System.IO.File]::Open("Create", "Write")
+        } catch {
+            "Could not open the specified file or file already exists"
+        }
+    } else {
+        $global:log = $null
+    }
     # Input Validation for args not validated with built-in types
     $msg = "No input validation for BaudRate. Please make sure your selection" + `
         " is supported by the target device"
@@ -100,7 +122,8 @@ function New-SerialSession {
     # try opening, exit if it fails
     try { $port.Open() } catch { throw "Failed to open serial port" }
     # start the interactive session
-    Start-SerialSession -Port $port
+    Start-SerialSession -Port $port -Log $log
     # Cleanup
     $port.Close()
+    $log.Close()
 }
