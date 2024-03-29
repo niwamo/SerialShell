@@ -1,0 +1,6 @@
+Recv: CR LF ESC [?2004lCR 
+Recv: ESC [?2004hroot@udm-ne:~# 
+Snd: ESC [18t
+Recv: BEL t
+Snd: BS 
+Recv: BS ESC [K

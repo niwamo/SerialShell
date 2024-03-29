@@ -1,0 +1,93 @@
+Recv: LFESC[?2004lESC[?2004hroot@udm-ne:~# 
+Recv: 
+Snd: w
+Recv: w
+Snd: h
+Recv: h
+Snd: o
+Recv: o
+Snd: a
+Recv: a
+Snd: m
+Recv: m
+Snd: i
+Recv: i
+Snd: 
+Recv: LFESC[?2004l
+Recv: rootLF
+Recv: ESC[?2004hroot@udm-ne:~# 
+Snd: v
+Recv: v
+Snd: i
+Recv: i
+Snd: m
+Recv: m
+Snd:  
+Recv:  
+Snd: .
+Recv: .
+Snd: /
+Recv: /
+Snd: 	
+Recv: 
+Snd: 	
+Recv: LF.bash_history                 network-initLF.bashrc                       .profileLFboard.cfg.json                squashfs-root/LFdaemon.log                    .ssh/LFdaemonlogger.pcap.1705523765  test.txtLFgretap-up.sh                  udapi-net-cfg.jsonLF.lesshst                      .vim/LFlibmodules.tar.gz             .viminfoLF.local/                       LFroot@udm-ne:~# vim ./
+Recv: 
+Snd: t
+Recv: t
+Snd: e
+Recv: e
+Snd: 	
+Recv: st.txt 
+Snd: 
+Recv: LFESC[?2004l
+Recv: ESC[?1006;1
+Recv: 000hESC[?1002hESC[?1049hESC[22;0;0tESC[>4;2mESC[?1hESC=ESC[?2004hESC[?1004hESC[1;24rESC[?12hESC[?12lESC[22;2tESC[22;1tESC[27mESC[23mESC[29mESC[mESC[HESC[2JESC[?25lESC[24;1H"./test.txt" 2L, 15BESC[2;1H???ESC[6nESC[2;1H  ESC[3;1HESCPzzESC\ESC[0%mESC[6nESC[3;1H           ESC[1;1HESC[>cESC]10;?ESC]11;?ESC[1;1HhelloLFnew lineESC[2;9HESC[KESC[3;1HESC[94m~                                                                               ESC[4;1H~                                                                               ESC[5;1H~                                                                               ESC[6;1H~                                                                               ESC[7;1H~                                                                               ESC[8;1H~                                                                               ESC[9;1H~                                                                               ESC[10;1H~                                                                               ESC[11;1H~                                                                               ESC[12;1H~                                                                               ESC[13;1H~                                                                               ESC[14;1H~                                                                               ESC[15;1H~                                                                               ESC[16;1H~                                                                               ESC[17;1H~                                                                               ESC[18;1H~                                                                               ESC[19;1H~                                                                               ESC[20;1H~                                                                               ESC[21;1H~                                                                               ESC[22;1H~                                                                               ESC[23;1H~                                                                               ESC[mESC[24;63H2,8ESC[11CAllESC[2;8HESC[?25hESC[?4m
+Recv: 
+Recv: 
+Snd: 
+Recv: ESC[?25lESC[24;53H^[ESC[2;8H
+Snd: [
+Recv: ESC[24;53H  ESC[2;8HESC[24;53H^[ESC[2;8HESC[24;55H[ESC[2;8H
+Snd: 2
+Snd: ;
+Snd: 4
+Snd: R
+Snd: 
+Recv: ESC[24;53H   ESC[2;8HESC[24;53H^[ESC[2;8HESC[24;55H[ESC[2;8HESC[24;56H2ESC[2;8HESC[24;53H    ESC[2;8HESC[24;53H^[ESC[2;8HESC[24;55H[ESC[2;8HESC[24;56H2ESC[2;8HESC[24;57H;ESC[2;8HESC[24;53H     ESC[2;8HESC[24;53H^[ESC[2;8HESC[24;55H[ESC[2;8HESC[24;56H2ESC[2;8HESC[24;57H;ESC[2;8HESC[24;58H4ESC[2;8HESC[24;53H      ESC[2;8HESC[?25hESC[?25lESC[24;53H^[ESC[2;8H
+Recv: 
+Snd: [
+Recv: ESC[24
+Snd: 3
+Recv: ;53H  ESC[2;8HESC[24;53H^[ESC[2;8HESC[24;55H[ESC[2;8HESC
+Snd: ;
+Snd: 1
+Snd: R
+Snd: 
+Recv: [24;53H   ESC[2;8HESC[24;53H^[ESC[2;8HESC[24;55H[ESC[2;8HESC[24;56H3ESC[2;8HESC[24;53H    ESC[2;8HESC[24;53H^[ESC[2;8HESC[24;55H[ESC[2;8HESC[24;56H3ESC[2;8HESC[24;57H;ESC[2;8HESC[24;53H     ESC[2;8HESC[24;53H^[ESC[2;8HESC[24;55H[ESC[2;8HESC[24;56H3ESC[2;8HESC[24;57H;ESC[2;8HESC[24;58H1ESC[2;8HESC[24;53H      ESC[2;8HESC[?25hESC[?25lESC[24;53H^[
+Recv: ESC[2;8H
+Recv: 
+Snd: [
+Snd: >
+Snd: 0
+Recv: ESC[24;53H  ESC[2;8HESC[24;53H^[ESC[2;8HESC[24;55H[ESC[2;8HESC[24;53H   ESC[2;8HESC[24;53H^[ESC[2;8HESC[24;55H[ESC[2;8HESC[24;56H>ESC[2;8HESC
+Recv: 
+Snd: ;
+Recv: [24;53H    ESC[2;8HESC[24;53H^[ESC[2;8HESC[24;55H[ESC[2;8HESC[24;56H>ESC[2;8HESC[24;57H0ESC[2;8HESC[24;53H     ESC[2;8HESC[24;5
+Recv: 
+Snd: 1
+Snd: 0
+Snd: ;
+Snd: 1
+Snd: c
+Recv: 3H^[ESC[2;8HESC[24;55H[ESC[2;8HESC[24;56H>ESC[2;8HESC[24;57H0ESC[2;8HESC[24;58H;ESC[2;8HESC[24;53H      ESC[2;8HESC[24;53H^[ESC[2;8HESC[24;55H[ESC[2;8HESC[24;56H>ESC[2;8HESC[24;57H0ESC[2;8HESC[24;58H;ESC[2;8HESC[24;59H1ESC[2;8HESC[24;53H       ESC[2;8HESC[24;53H^[ESC[2;8HESC[24;55H[ESC[2;8HESC[24;56H>ESC[2;8HESC[24;57H0ESC[2;8HESC[24;58H;ESC[2;8HESC[24;59H1ESC[2;8HESC[24;60H0ESC[2;8HESC[24;53H        ESC[2;8HESC[24;53H^[ESC[2;8HESC[24;55H[ESC[2;8HESC[24;56H>ESC[2;8HESC[24;57H0ESC[2;8HESC[24;58H;ESC[2;8HESC[24;59H1ESC[2;8HESC[24;60H0ESC[2;8HESC[24;61H;ESC[2;8HESC[24;53H         ESC[2;8HESC[24;53H^[ESC[2;8HESC[24;55H[ESC[2;8HESC[24;56H>ESC[2;8HESC[24;57H0ESC[2;8HESC[24;58H;ESC[2;8HESC[24;59H1ESC[2;8HESC[24;60H0ESC[2;8HESC[24;61H;ESC[2;8HESC[24;62H1ESC[2;8HESC[24;53H          ESC[2;8HESC[?12$pESC[?25h
+Recv: 
+Snd: :
+Recv: ESC[?25lESC[24;53H:ESC[
+Recv: 2;8HESC[24;1HESC[KESC[24;1H:ESC[?25h
+Snd: q
+Recv: q
+Snd: 
+Recv: ESC[?25lESC[?1006;1000lESC[?1002lESC[?2004lESC[>4;mESC[23;2tESC[23;1tESC[24;1HESC[KESC[24;1HESC[?1004lESC[?2004lESC[?1lESC>ESC[?1049lESC[23;0;0tESC[?25hESC[>4;m
+Recv: 
+Recv: ESC[?2004hroot@udm-ne:~# 

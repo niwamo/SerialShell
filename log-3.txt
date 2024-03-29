@@ -1,0 +1,100 @@
+Recv: CR LF ESC [?2004lCR 
+Recv: ESC [?2004hroot@udm-ne:~# 
+Snd: w
+Recv: w
+Snd: h
+Recv: h
+Snd: a
+Recv: a
+Snd: o
+Recv: o
+Snd: 
+Recv: ESC [
+Recv: K
+Snd: 
+Recv: ESC [K
+Snd: o
+Recv: o
+Snd: a
+Recv: a
+Snd: m
+Recv: m
+Snd: i
+Recv: i
+Snd: CR 
+Recv: CR LF ESC [?2004lCR 
+Recv: rootCR LF 
+Recv: ESC [?2004hroot@udm-ne:~# 
+Snd: v
+Recv: v
+Snd: i
+Recv: i
+Snd: m
+Recv: m
+Snd:  
+Recv:  
+Snd: .
+Recv: .
+Snd: /
+Recv: /
+Snd: t
+Recv: t
+Snd: e
+Recv: e
+Snd: TAB 
+Recv: st.txt 
+Snd: CR 
+Recv: CR LF ESC [?2004lCR 
+Recv: ESC [?1006;1000hESC [?1002hESC [?1049hESC [22;0;0tESC [>4;2mESC [?1hESC =ESC [?2004hESC [?1004hESC [1;24rESC [?12hESC [?12lESC [22;2tESC [22;1tESC [27mESC [23mESC [29mESC [mESC [HESC [2JESC [?25lESC [24;1H"./test.txt" 2L, 15BESC [2;1H???ESC [6nESC [2;1H  ESC [3;1HESC PzzESC \ESC [0%mESC [6nESC [3;1H           ESC [1;1HESC [>cESC ]10;?BEL ESC ]11;?BEL ESC [1;1HhelloCR LF new lineESC [2;9HESC [KESC [3;1HESC [94m~                                                                               ESC [4;1H~                                                                               ESC [5;1H~                                                                               ESC [6;1H~                                                                               ESC [7;1H~                                                                               ESC [8;1H~                                                                               ESC [9;1H~                                                                               ESC [10;1H~                                                                               ESC [11;1H~                                                                               ESC [12;1H~                                                                               ESC [13;1H~                                                                               ESC [14;1H~                                                                               ESC [15;1H~                                                                               ESC [16;1H~                                                                               ESC [17;1H~                                                                               ESC [18;1H~                                                                               ESC [19;1H~                                                                               ESC [20;1H~                                                                               ESC [21;1H~                                                                               ESC [22;1H~                                                                               ESC [23;1H~                                                                               ESC [mESC [24;63H2,8ESC [11CAllESC [2;8HESC [?25hESC [?4m
+Recv: 
+Recv: 
+Recv: 
+Recv: 
+Recv: 
+Snd: ESC 
+Recv: ESC [?25lESC [24;53H^[ESC [2;8H
+Snd: [
+Recv: ESC [24;53H  ESC [2;8HESC [24;53H^[ESC [2;8HESC [24;55H[ESC [2;8H
+Snd: 2
+Snd: ;
+Snd: 4
+Snd: R
+Snd: ESC 
+Recv: ESC [24;53H   ESC [2;8HESC [24;53H^[ESC [2;8HESC [24;55H[ESC [2;8HESC [24;56H2ESC [2;8HESC [24;53H    ESC [2;8HESC [24;53H^[ESC [2;8HESC [24;55H[ESC [2;8HESC [24;56H2ESC [2;8HESC [24;57H;ESC [2;8HESC [24;53H     ESC [2;8HESC [24;53H^[ESC [2;8HESC [24;55H[ESC [2;8HESC [24;56H2ESC [2;8HESC [24;57H;ESC [2;8HESC [24;58H4ESC [2;8HESC [24;53H      ESC [2;8HESC [?25hESC [?25lESC [24;53
+Recv: 
+Snd: [
+Recv: H^[ESC [2;8HESC [24;
+Recv: 53H  ESC [2;8HESC [24;53H^[ESC [2;8HESC [24;55H[ESC [2;8H
+Snd: 3
+Snd: ;
+Snd: 1
+Snd: R
+Snd: ESC 
+Recv: ESC [24;53H   ESC [2;8HESC [24;53H^[ESC [2;8HESC [24;55H[ESC [2;8HESC [24;56H3ESC [2;8HESC [24;53H    ESC [2;8HESC [24;53H^[ESC [2;8HESC [24;55H[ESC [2;8HESC [24;56H3ESC [2;8HESC [24;57H;ESC [2;8HESC [24;53H     ESC [2;8HESC [24;53H^[ESC [2;8HESC [24;55H[ESC [2;8HESC [24;56H3ESC [2;8HESC [24;57H;ESC [2;8HESC [24;58H1ESC [2;8HESC [24;53H      ESC [2;8HESC [?25hESC [?25l
+Recv: 
+Recv: ESC [24;53H^[ESC [2;8H
+Snd: [
+Snd: >
+Snd: 0
+Recv: ESC [24;53H  ESC [2;8HESC [24;53H^[ESC [2;8HESC [24;55H[ESC [2;8HESC [24;53H   ESC [2;8HESC [24;53H^[ESC [2;8HESC [24;55H[ESC [2;8HESC [24;56H>ESC [2;8HESC [24;53H   
+Recv: 
+Snd: ;
+Recv:  ESC [2;8HESC [24;53H^[ESC [2;8HESC [24;55H[ESC [2;8HESC [24;56H>ESC [2;8HESC [24;57H0ESC [2;8HESC [24;53H     ESC [2;8HESC [24;53H^
+Recv: 
+Snd: 1
+Snd: 0
+Snd: ;
+Snd: 1
+Snd: c
+Recv: [ESC [2;8HESC [24;55H[ESC [2;8HESC [24;56H>ESC [2;8HESC [24;57H0ESC [2;8HESC [24;58H;ESC [2;8HESC [24;53H      ESC [2;8HESC [24;53H^[ESC [2;8HESC [24;55H[ESC [2;8HESC [24;56H>ESC [2;8HESC [24;57H0ESC [2;8HESC [24;58H;ESC [2;8HESC [24;59H1ESC [2;8HESC [24;53H       ESC [2;8HESC [24;53H^[ESC [2;8HESC [24;55H[ESC [2;8HESC [24;56H>ESC [2;8HESC [24;57H0ESC [2;8HESC [24;58H;ESC [2;8HESC [24;59H1ESC [2;8HESC [24;60H0ESC [2;8HESC [24;53H        ESC [2;8HESC [24;53H^[ESC [2;8HESC [24;55H[ESC [2;8HESC [24;56H>ESC [2;8HESC [24;57H0ESC [2;8HESC [24;58H;ESC [2;8HESC [24;59H1ESC [2;8HESC [24;60H0ESC [2;8HESC [24;61H;ESC [2;8HESC [24;53H         ESC [2;8HESC [24;53H^[ESC [2;8HESC [24;55H[ESC [2;8HESC [24;56H>ESC [2;8HESC [24;57H0ESC [2;8HESC [24;58H;ESC [2;8HESC [24;59H1ESC [2;8HESC [24;60H0ESC [2;8HESC [24;61H;ESC [2;8HESC [24;62H1ESC [2;8HESC [24;53H          ESC [2;8HESC [?12$pESC [?25h
+Recv: 
+Snd: :
+Recv: ESC [?25lESC [24;53H:ESC [2;8HESC [24;1HESC [KESC [24;1H:ESC [?25h
+Snd: q
+Recv: q
+Snd: CR 
+Recv: CR ESC [?25lESC [?1006;1000lESC [?1002lESC [?2004lESC [>4;mESC [23;2
+Recv: tESC [23;1t
+Recv: ESC [24;1HESC [KESC [24;1HESC [?1004lESC [?2004lESC [?1lESC >ESC [?1049lESC [23;0;0tESC [?25hESC [>4;m
+Recv: 
+Recv: ESC [?2004hroot@udm-ne:~# 

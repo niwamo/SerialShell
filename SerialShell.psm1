@@ -41,6 +41,8 @@ function Start-SerialSession {
             $data = $port.ReadExisting()
             Write-Host $data -NoNewline
             if ($Log) {
+                $data = Get-Switcheroo -in $data
+                $data = "Recv: " + $data + "`n"
                 $Log.Write([char[]]$data, 0, $data.Length)
             }
         } 
@@ -57,7 +59,22 @@ function Start-SerialSession {
                     # exit
                     Write-Host
                     break
-                } 
+                } elseif ($char -eq "r") {
+                    Write-Host $([char]27 + "[r")
+                } elseif ($char -eq "g") {
+                    $msg = [string]::Join('', [char[]]@(27, 91, 49, 56, 116))
+                    $port.Write($msg)
+                    $msg = Get-Switcheroo -in $msg
+                    $msg = "Snd: " + $msg + "`n"
+                    $Log.Write([char[]]$msg, 0, $msg.Length)
+                } elseif ($char -eq "s") {
+                    $msg = [char]27 + [string]::Join([char]27, @(
+                        "[s", "[G", "[A", 
+                        "[LHt: $([Console]::WindowHeight), Wt: $([Console]::WindowWidth)", 
+                        "[u"
+                    )) 
+                    Write-Host $msg
+                }
                 $cmd = $false
             } else {
                 if ([byte]$key.KeyChar -eq 1) {
@@ -70,7 +87,9 @@ function Start-SerialSession {
                     }
                     $port.Write($msg)
                     if ($Log) {
-                        $Log.Write($msg, 0, $msg.Length)
+                        $msg = Get-Switcheroo -in $msg
+                        $msg = "Snd: " + $msg + "`n"
+                        $Log.Write([char[]]$msg, 0, $msg.Length)
                     }
                 }
             }
@@ -125,5 +144,22 @@ function New-SerialSession {
     Start-SerialSession -Port $port -Log $log
     # Cleanup
     $port.Close()
-    $log.Close()
+    if ($log) {
+        $log.Close()
+    }
 }
+
+function Get-Switcheroo {
+    param(
+        [string]$in
+    )
+    $out = $in -replace [char]0, "NUL "
+    $out = $out -replace [char]7, "BEL "
+    $out = $out -replace [char]8, "BS "
+    $out = $out -replace [char]9, "TAB "
+    $out = $out -replace [char]10, "LF "
+    $out = $out -replace [char]13, "CR "
+    $out = $out -replace [char]27, "ESC "
+    return $out
+}
+
