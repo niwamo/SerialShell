@@ -4,30 +4,30 @@ function Start-SerialSession {
     )
     [Console]::TreatControlCAsInput = $true
     $cmd = $false
-    $inputHelpers = [Collections.Generic.Dictionary[ConsoleKey,String]]::new()
+    $inputHelpers = [Collections.Generic.Dictionary[ConsoleKey, String]]::new()
     @{
-        "UpArrow"       = $([char]27 + '[A')
-        "DownArrow"     = $([char]27 + '[B')
-        "RightArrow"    = $([char]27 + '[C')
-        "LeftArrow"     = $([char]27 + '[D')
-        "F1"            = $([char]27 + 'OP')
-        "F2"            = $([char]27 + 'OQ')
-        "F3"            = $([char]27 + 'OR')
-        "F4"            = $([char]27 + 'OS')
-        "F5"            = $([char]27 + '[15~')
-        "F6"            = $([char]27 + '[17~')
-        "F7"            = $([char]27 + '[18~')
-        "F8"            = $([char]27 + '[19~')
-        "F9"            = $([char]27 + '[20~')
-        "F10"           = $([char]27 + '[21~')
-        "F11"           = $([char]27 + '[23~')
-        "F12"           = $([char]27 + '[24~')
-        "Delete"        = $([char]127)
-        "Home"          = $([char]27 + '[H')
-        "End"           = $([char]27 + '[F')
-        "PageUp"        = $([char]27 + '[5~')
-        "PageDown"      = $([char]27 + '[6~')
-        "Insert"        = $([char]27 + '[2~')
+        "UpArrow"    = $([char]27 + '[A')
+        "DownArrow"  = $([char]27 + '[B')
+        "RightArrow" = $([char]27 + '[C')
+        "LeftArrow"  = $([char]27 + '[D')
+        "F1"         = $([char]27 + 'OP')
+        "F2"         = $([char]27 + 'OQ')
+        "F3"         = $([char]27 + 'OR')
+        "F4"         = $([char]27 + 'OS')
+        "F5"         = $([char]27 + '[15~')
+        "F6"         = $([char]27 + '[17~')
+        "F7"         = $([char]27 + '[18~')
+        "F8"         = $([char]27 + '[19~')
+        "F9"         = $([char]27 + '[20~')
+        "F10"        = $([char]27 + '[21~')
+        "F11"        = $([char]27 + '[23~')
+        "F12"        = $([char]27 + '[24~')
+        "Delete"     = $([char]127)
+        "Home"       = $([char]27 + '[H')
+        "End"        = $([char]27 + '[F')
+        "PageUp"     = $([char]27 + '[5~')
+        "PageDown"   = $([char]27 + '[6~')
+        "Insert"     = $([char]27 + '[2~')
     }.GetEnumerator() | ForEach-Object {
         $inputHelpers.Add($_.Key, $_.Value) 
     }
@@ -37,9 +37,9 @@ function Start-SerialSession {
         -EventName DataReceived `
         -MessageData $port `
         -Action {
-            $data = $port.ReadExisting()
-            Write-Host $data -NoNewline
-        } 
+        $data = $port.ReadExisting()
+        Write-Host $data -NoNewline
+    } 
     Write-Host "Starting Session. CTRL+A -> Z to exit"
     # output blank line as a way of requesting a prompt from remote system
     $port.WriteLine("")
@@ -49,19 +49,36 @@ function Start-SerialSession {
             $key = [Console]::ReadKey($true)
             $char = $key.KeyChar
             if ($cmd) {
-                if ($char -eq "z") {
-                    # exit
-                    Write-Host
-                    break
-                } 
+                switch ($char) {
+                    "z" { 
+                        # exit
+                        Write-Host
+                        break 
+                    }
+                    "s" { 
+                        # show screen size
+                        $msg = [string]::Join(
+                            [char]27, 
+                            @(
+                                "", "[s", "[G", "[A", 
+                                "[LHt: $([Console]::WindowHeight), Wt: $([Console]::WindowWidth)", 
+                                "[u"
+                            )
+                        ) 
+                        Write-Host $msg
+                    }
+                }
                 $cmd = $false
-            } else {
+            }
+            else {
                 if ([byte]$key.KeyChar -eq 1) {
                     $cmd = $true
-                } elseif ($inputHelpers.Keys.Contains($key.Key)) {
+                }
+                elseif ($inputHelpers.Keys.Contains($key.Key)) {
                     $msg = $inputHelpers[$key.Key]
                     $port.Write($msg)
-                } else {
+                }
+                else {
                     $port.Write($key.KeyChar)
                 }
             }
