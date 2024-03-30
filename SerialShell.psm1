@@ -1,9 +1,31 @@
+$menu = @"
+Menu:
+z:  exit SerialShell
+
+press any other key to resume
+"@
+
+function Invoke-AlternateBuffer {
+    param(
+        [int]$Lines = 10
+    )
+    $ESC = [char]27
+    $sequence = "$ESC[?1049h" + "$ESC[1;$($Lines)r" + "$ESC[2J" + "$ESC[?25l"
+    Write-Host -NoNewline $sequence
+}
+
+function Invoke-PrimaryBuffer {
+    $ESC = [char]27
+    $sequence = "$ESC[r" + "$ESC[?25h" + "$ESC[?1049l" 
+    Write-Host -NoNewline $sequence
+}
+
 function Start-SerialSession {
     param(
         [System.IO.Ports.SerialPort]$Port
     )
     [Console]::TreatControlCAsInput = $true
-    $cmd = $false
+    #$cmd = $false
     $inputHelpers = [Collections.Generic.Dictionary[ConsoleKey, String]]::new()
     @{
         "UpArrow"    = $([char]27 + '[A')
@@ -47,40 +69,24 @@ function Start-SerialSession {
     while ($true) {
         if ([Console]::KeyAvailable) {
             $key = [Console]::ReadKey($true)
-            $char = $key.KeyChar
-            if ($cmd) {
-                switch ($char) {
-                    "z" { 
-                        # exit
-                        Write-Host
-                        break 
-                    }
-                    "s" { 
-                        # show screen size
-                        $msg = [string]::Join(
-                            [char]27, 
-                            @(
-                                "", "[s", "[G", "[A", 
-                                "[LHt: $([Console]::WindowHeight), Wt: $([Console]::WindowWidth)", 
-                                "[u"
-                            )
-                        ) 
-                        Write-Host $msg
-                    }
+            if ([byte]$key.KeyChar -eq 1) {
+                Invoke-AlternateBuffer
+                $width = [Console]::WindowWidth
+                $height = [Console]::WindowHeight
+                Write-Host "Terminal Size: columns $width rows $height`n"
+                Write-Host $menu
+                $response = [Console]::ReadKey($true).KeyChar
+                Invoke-PrimaryBuffer
+                if ($response -eq "z") {
+                    break   
                 }
-                $cmd = $false
+            }
+            elseif ($inputHelpers.Keys.Contains($key.Key)) {
+                $msg = $inputHelpers[$key.Key]
+                $port.Write($msg)
             }
             else {
-                if ([byte]$key.KeyChar -eq 1) {
-                    $cmd = $true
-                }
-                elseif ($inputHelpers.Keys.Contains($key.Key)) {
-                    $msg = $inputHelpers[$key.Key]
-                    $port.Write($msg)
-                }
-                else {
-                    $port.Write($key.KeyChar)
-                }
+                $port.Write($key.KeyChar)
             }
         }
         Start-Sleep -Milliseconds 1
