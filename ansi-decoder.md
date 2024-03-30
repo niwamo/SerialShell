@@ -38,7 +38,7 @@
 | ^[?25l             | hides the cursor                                                               |
 | ^[?4m              | set the cursor to underline style                                              |
 | ^[>0;10;1c         | response to DSC request; indicates VT100 emulation and 132-col mode            |
-| ^[3;1R             |
+| ^[3;1R             | reports cursor position                                                        |
 | ^[23;2t            | restore window title from stack                                                |
 | ^[23;1t            | restore icon title from stack                                                  |
 | ^[23;0;0t          | unclear... restore window and icon titles?                                     |
