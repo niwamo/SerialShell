@@ -105,8 +105,8 @@ function New-SerialSession {
         [System.IO.Ports.StopBits]$StopBits = "one"
     )
     # Input Validation for args not validated with built-in types
-    $msg = "No input validation for BaudRate. Please make sure your selection" + `
-        " is supported by the target device"
+    $msg = "No input validation for BaudRate. Please make sure your" + `
+        " selection is supported by the target device"
     Write-Warning $msg
     $portNames = [System.IO.Ports.SerialPort]::GetPortNames()
     if (! $portNames.Contains("COM$COMPort")) {
