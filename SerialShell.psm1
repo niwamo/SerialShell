@@ -62,16 +62,22 @@ function Start-SerialSession {
                 } elseif ($char -eq "r") {
                     Write-Host $([char]27 + "[r")
                 } elseif ($char -eq "g") {
-                    $msg = [string]::Join('', [char[]]@(27, 91, 49, 56, 116))
+                    # ESC[;;18t
+                    # See "CSI Ps ; Ps ; Ps t" on 
+                    # https://invisible-island.net/xterm/ctlseqs/ctlseqs.html
+                    $msg = [string]::Join('', [char[]]@(27, 91, 59, 59, 49, 56, 116))
                     $port.Write($msg)
                     $msg = Get-Switcheroo -in $msg
                     $msg = "Snd: " + $msg + "`n"
                     $Log.Write([char[]]$msg, 0, $msg.Length)
                 } elseif ($char -eq "s") {
                     $msg = [char]27 + [string]::Join([char]27, @(
-                        "[s", "[G", "[A", 
-                        "[LHt: $([Console]::WindowHeight), Wt: $([Console]::WindowWidth)", 
-                        "[u"
+                        "[s", # save cursor position
+                        "[0G", # move to column N in the current row
+                        "[1A", # move cursor up by N
+                        "[1LHt: $([Console]::WindowHeight), Wt: $([Console]::WindowWidth)", 
+                        #[1L = insert line
+                        "[u" # restore cursor position
                     )) 
                     Write-Host $msg
                 }
@@ -162,4 +168,3 @@ function Get-Switcheroo {
     $out = $out -replace [char]27, "ESC "
     return $out
 }
-
